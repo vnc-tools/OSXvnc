@@ -26,8 +26,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "/tmp/VineServer.dmg"
-          name: latest
-          tag: latest
+          name: Release 5.3.1
+          tag: v5_3_1
           commit: main
           prerelease: true
           allowUpdates: true
