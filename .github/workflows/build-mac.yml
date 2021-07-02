@@ -28,9 +28,6 @@ jobs:
           artifacts: "/tmp/VineServer.dmg"
           name: Release 5.3.1
           tag: v5_3_1
-          commit: main
-          prerelease: true
           allowUpdates: true
-          omitBody: true
           omitBodyDuringUpdate: true 
           token: ${{ secrets.GITHUB_TOKEN }}
