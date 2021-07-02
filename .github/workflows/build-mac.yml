@@ -21,3 +21,16 @@ jobs:
 
       - name: Build OSXvnc
         run: xcodebuild
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "/tmp/VineServer.dmg"
+          name: latest
+          tag: latest
+          commit: main
+          prerelease: true
+          allowUpdates: true
+          omitBody: true
+          omitBodyDuringUpdate: true 
+          token: ${{ secrets.GITHUB_TOKEN }}
