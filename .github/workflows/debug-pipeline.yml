@@ -1,4 +1,4 @@
-name: build-mac
+name: debug-pipeline
 
 on: 
   workflow_dispatch:
