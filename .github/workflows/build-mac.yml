@@ -1,0 +1,23 @@
+name: build-mac
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Patch scripts
+        run: |
+          ruby -pi -e 'gsub("libturbojpeg", "libjpeg")' OSXvnc.xcodeproj/project.pbxproj
+          ruby -pi -e 'gsub("/opt/libjpeg-turbo", "/usr/local")' OSXvnc.xcodeproj/project.pbxproj
+
+      - name: Build libjpeg
+        run: ./build-libjpeg-turbo.sh
+
+      - name: Build OSXvnc
+        run: xcodebuild
